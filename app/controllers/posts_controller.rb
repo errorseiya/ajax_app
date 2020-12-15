@@ -15,13 +15,14 @@ class PostsController < ApplicationController
   def checked
     post = Post.find(params[:id])
     if post.checked # 既読であるか否かを判定するプロパティを指定
-      post.update(checked: false) # 「update 更新」のActiveRecord
+      post.update(checked: false) 
     else
       post.update(checked: true)
     end
     # 「update 更新」のActiveRecord
     item = Post.find(params[:id])
     render json: { post: item }
+    # ルーティングでリクエストしてきたjsファイルにrender json: で選択しなくても自動で返される
   end
 
 end
