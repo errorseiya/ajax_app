@@ -11,6 +11,7 @@ class PostsController < ApplicationController
     post = Post.create(content: params[:content], checked: false)
     # 既読や未読の情報を追加したため「メモ作成時に未読の情報を保存するようにしたこと」
     render json:{ post: post } # Ajaxを実現するため「レスポンスをJSONに変更したこと」
+    
     # Post.create(content: params[:content])
     # redirect_to action: :index# メモを保存した後にトップページへリダイレクトされる
   end
